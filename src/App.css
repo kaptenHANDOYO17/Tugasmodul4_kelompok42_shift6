@@ -1,0 +1,494 @@
+.display {
+  font-family: 'Arial Narrow', 'Franklin Gothic Medium', 'Roboto Condensed', system-ui,
+    sans-serif;
+  font-stretch: condensed;
+  letter-spacing: -0.01em;
+}
+
+.shell {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 24px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 4px 0;
+  color: var(--steel);
+  font: inherit;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: var(--ink);
+}
+
+.nav-link.active {
+  color: var(--ink);
+  border-bottom-color: var(--brass);
+}
+
+.main {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+}
+
+.masthead,
+.page {
+  padding: 64px 0 40px;
+}
+
+.masthead {
+  border-bottom: 1px solid var(--line);
+}
+
+.masthead h1,
+.page h1 {
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+}
+
+.lede {
+  color: var(--steel);
+  max-width: 46ch;
+  margin: 0;
+}
+
+.list-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 32px 0 8px;
+}
+
+.list-head h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.count {
+  color: var(--steel);
+  font-size: 0.9rem;
+}
+
+.stock {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.card:hover {
+  border-color: var(--brass);
+}
+
+.card-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 0 14px;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Bingkai gambar dengan rasio tetap 4:3 agar semua kartu seragam */
+.card-frame {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin-bottom: 10px;
+  background: #e4e8ea;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.card-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.card .name,
+.card .type,
+.card .price {
+  padding: 0 14px;
+}
+
+.name {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.price {
+  color: var(--brass);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.type {
+  color: var(--steel);
+  font-size: 0.9rem;
+}
+
+.popup {
+  width: min(420px, calc(100vw - 32px));
+  padding: 0 0 20px;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.popup::backdrop {
+  background: rgb(24 34 44 / 0.55);
+}
+
+.popup-frame {
+  aspect-ratio: 4 / 3;
+  margin-bottom: 16px;
+  background: #e4e8ea;
+  border-bottom: 1px solid var(--line);
+}
+
+.popup-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.popup h3,
+.popup p,
+.popup form {
+  margin: 0 20px;
+}
+
+.popup h3 {
+  font-size: 1.5rem;
+}
+
+.popup p {
+  margin-top: 8px;
+}
+
+.popup-close {
+  margin-top: 20px;
+  padding: 8px 18px;
+  border: 1px solid var(--ink);
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.popup-close:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.footer {
+  margin-top: auto;
+  padding: 20px 24px;
+  text-align: center;
+  background: var(--panel);
+  color: var(--panel-text);
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* ---------- Tugas: pencarian, filter, dan pengurutan ---------- */
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+
+.search:focus {
+  border-color: var(--brass);
+  outline: none;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.chips-label {
+  color: var(--steel);
+  font-size: 0.9rem;
+  margin-right: 4px;
+}
+
+.chip {
+  padding: 5px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--steel);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.chip.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.dir {
+  font-variant-numeric: tabular-nums;
+}
+
+.empty {
+  padding: 32px 0;
+  color: var(--steel);
+  text-align: center;
+}
+
+/* ---------- Tugas: keranjang belanja ---------- */
+.add-btn {
+  margin: 0 14px 14px;
+  padding: 8px 12px;
+  border: 1px solid var(--ink);
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.cart-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge {
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--brass);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.cart-list {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.cart-row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto auto;
+  grid-template-areas:
+    'thumb info qty total'
+    'thumb info remove remove';
+  align-items: center;
+  gap: 4px 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.cart-thumb {
+  grid-area: thumb;
+  width: 80px;
+  height: 60px;
+  object-fit: contain;
+  background: #e4e8ea;
+}
+
+.cart-info {
+  grid-area: info;
+  display: flex;
+  flex-direction: column;
+}
+
+.qty {
+  grid-area: qty;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.qty button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.qty button:hover {
+  background: var(--paper);
+}
+
+.qty-value {
+  min-width: 28px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.line-total {
+  grid-area: total;
+  min-width: 72px;
+  text-align: right;
+}
+
+.remove {
+  grid-area: remove;
+  justify-self: end;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--steel);
+  font: inherit;
+  font-size: 0.85rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cart-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.cart-total p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.ghost-btn {
+  margin-top: 20px;
+  padding: 8px 18px;
+  border: 1px solid var(--ink);
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.cart-total .ghost-btn {
+  margin-top: 0;
+}
+
+.ghost-btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+@media (max-width: 520px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px 16px;
+  }
+
+  .nav {
+    gap: 18px;
+  }
+
+  .main {
+    padding: 0 16px 48px;
+  }
+
+  .cart-row {
+    grid-template-columns: 64px 1fr auto;
+    grid-template-areas:
+      'thumb info total'
+      'thumb qty remove';
+  }
+
+  .cart-thumb {
+    width: 64px;
+    height: 48px;
+  }
+
+  .qty {
+    justify-self: start;
+  }
+}
